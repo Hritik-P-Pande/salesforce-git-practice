@@ -1,5 +1,5 @@
-public class vsToApexClass{
-    public static void vsToApexMethod(){
-        system.debug('Print');
+public class VsToApexClass {
+    public static String VsToApexMethod() {
+        return 'print';
     }
 }
