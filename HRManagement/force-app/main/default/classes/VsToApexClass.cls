@@ -1,5 +1,5 @@
 public class VsToApexClass {
     public static String VsToApexMethod() {
-        return 'print';
+        return 'print 2';
     }
 }
