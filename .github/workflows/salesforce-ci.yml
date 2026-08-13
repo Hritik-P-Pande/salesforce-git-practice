@@ -21,7 +21,7 @@ jobs:
 
       - name: Authenticate to Salesforce
         run: |
-          echo "${{ secrets.SFDX_AUTH_URL }}" | sf org login sfdx-url --sfdx-url-stdin --alias ciOrg --set-default
+          echo "${{ secrets.SFDX_AUTH_URL }}" | sf org login sfdx-url --sfdx-url-stdin
 
       - name: Check Salesforce connection
-        run: sf org display --target-org ciOrg
+        run: sf org list
