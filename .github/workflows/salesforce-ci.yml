@@ -21,10 +21,10 @@ jobs:
 
       - name: Authenticate to Salesforce
         run: |
-          echo "${{ secrets.SFDX_AUTH_URL }}" | sf org login sfdx-url --sfdx-url-stdin --alias ciOrg --set-default
+          echo "${{ secrets.SFDX_AUTH_URL }}" | sf org login sfdx-url --sfdx-url-stdin --set-default
 
       - name: Check Salesforce connection
         run: sf org list
 
       - name: Run Apex Tests
-        run: sf apex run test --target-org ciOrg --test-level RunLocalTests --wait 10
+        run: sf apex run test --test-level RunLocalTests --wait 10
