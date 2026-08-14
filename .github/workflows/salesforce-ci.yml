@@ -24,9 +24,9 @@ jobs:
         run: sf --version
 
       # 4. Authenticate to Salesforce
-      - name: Authenticate to Salesforce
+            - name: Authenticate to Salesforce
         run: |
-          echo "${{ secrets.SFDX_AUTH_URL }}" | sf org login sfdx-url --sfdx-url-stdin --alias=ciOrg --set-default
+          echo "${{ secrets.SFDX_AUTH_URL }}" | sf org login sfdx-url --sfdx-url-stdin
 
       # 5. Check Salesforce connection
       - name: Check Salesforce connection
