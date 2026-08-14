@@ -10,21 +10,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+      # 1. Get the code from GitHub
       - name: Get the code
         uses: actions/checkout@v4
 
+      # 2. Install Salesforce CLI
       - name: Install Salesforce CLI
         run: npm install --global @salesforce/cli
 
+      # 3. Check Salesforce CLI
       - name: Check Salesforce CLI
         run: sf --version
 
+      # 4. Authenticate to Salesforce
       - name: Authenticate to Salesforce
         run: |
-          echo "${{ secrets.SFDX_AUTH_URL }}" | sf org login sfdx-url --sfdx-url-stdin --set-default
+          echo "${{ secrets.SFDX_AUTH_URL }}" | sf org login sfdx-url --sfdx-url-stdin --alias=ciOrg --set-default
 
+      # 5. Check Salesforce connection
       - name: Check Salesforce connection
         run: sf org list
 
+      # 6. Run Apex Tests
       - name: Run Apex Tests
-        run: sf apex run test --test-level RunLocalTests --wait 10
+        run: sf apex run test --target-org ciOrg --test-level RunLocalTests --wait 10
