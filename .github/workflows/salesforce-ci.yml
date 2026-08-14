@@ -24,7 +24,7 @@ jobs:
         run: sf --version
 
       # 4. Authenticate to Salesforce
-            - name: Authenticate to Salesforce
+      - name: Authenticate to Salesforce
         run: |
           echo "${{ secrets.SFDX_AUTH_URL }}" | sf org login sfdx-url --sfdx-url-stdin
 
